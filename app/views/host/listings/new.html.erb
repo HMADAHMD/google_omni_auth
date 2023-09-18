@@ -5,17 +5,38 @@
         <%= error%>
     <% end%>
 <% end%>
-<form action="<%= host_listings_path %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+<table>
+  <form action="<%= host_listings_path %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    
+    <tr>
+      <td><label for="title">Title:</label></td>
+      <td><input type="text" name="listing[title]" id="title" value="<%= @listing.title %>"></td>
+    </tr>
+    
+    <tr>
+      <td><label for="about">About:</label></td>
+      <td><textarea name="listing[about]" id="about"><%= @listing.about %></textarea></td>
+    </tr>
+    
+    <tr>
+      <td><label for="address">Address:</label></td>
+      <td>
+        <div data-controller="address">
+          <input type="text" name="listing[address]" id="address" autocomplete="off">
+        </div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td><label for="max_guests">Max Guest:</label></td>
+      <td><input type="number" name="listing[max_guests]" id="max_guests" value="<%= @listing.max_guests %>" min="1" max="100" step="1"></td>
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Create Listing"></td>
+    </tr>
+  </form>
+</table>
 
-    <label for="title">Title: </label>
-    <input type="text" name="listing[title]" id="title" value="<%=@listing.title%>"><br><br>
-
-    <label for="about">About: </label>
-    <input type="text" name="listing[about]" id="about" rows="5" value="<%=@listing.about%>" max_lines="5"><br><br>
-
-    <label for="max_guests">Max Guest: </label>
-    <input type="number" name="listing[max_guests]" id="max_guests" value="<%=@listing.max_guests%>"min="1" max="100" step="1"><br><br>
-
-    <input type="submit" value="Create Listing">
-</form>
