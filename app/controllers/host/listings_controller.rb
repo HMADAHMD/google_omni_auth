@@ -2,7 +2,7 @@ class Host::ListingsController < ApplicationController
   #before_action :authenticate_user!
 
   def index
-    @listing = current_user.listings
+    @listings = current_user.listings
   end
 
   def new
@@ -12,7 +12,7 @@ class Host::ListingsController < ApplicationController
   def create
     @listing = current_user.listings.new(listing_create_params)
     if @listing.save
-      redirect_to hosts_listing_path(@listing)
+      redirect_to host_listings_path(@listing)
     else
       flash.now[:errors] = @listing.errors.full_messages
       render :new
@@ -20,9 +20,9 @@ class Host::ListingsController < ApplicationController
   end
 
   def update
-    @listing = current_user.listing.find(params[:id])
+    @listing = current_user.listings.find(params[:id])
     if @listing.update(listing_update_params)
-      redirect_to hosts_listing_path(@listing)
+      redirect_to host_listings_path(@listing)
     else
       flash.now[:errors] = @listing.errors.full_messages
       render :new
@@ -34,14 +34,14 @@ class Host::ListingsController < ApplicationController
   end
 
   def show
-    @listing = current_user.listing.find(params[:id])
+    @listing = current_user.listings.find(params[:id])
   end
 
   def destroy
-    @listing = current_user.listing.find(params[:id])
+    @listing = current_user.listings.find(params[:id])
     if @listing.present?
       @listing.update(status: :archived)
-      redirect_to hosts_listings_path
+      redirect_to host_listings_path
     else
       flash.now[:errors] = @listing.errors.full_messages
       render :new
