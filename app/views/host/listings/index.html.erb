@@ -1,2 +1,9 @@
-<h1>Host::Listings#index</h1>
-<p>Find me in app/views/host/listings/index.html.erb</p>
+<p style="text-align: right;"><%=link_to "Add New Listing", new_host_listing_path%></p>
+<h1>Your Listings</h1>
+<% @listings.each do |l|%>
+    <p>Title: <%= link_to l.title, host_listing_path(l)%><br>
+    About: <%= link_to l.about, host_listing_path(l)%><br>
+    <%= l.status%>
+    <%= button_to "Delete", host_listing_path(l), method: :delete%>
+    </p><hr>
+<% end %>
