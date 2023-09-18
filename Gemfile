@@ -78,3 +78,5 @@ gem "devise", "~> 4.9"
 gem 'omniauth-google-oauth2'
 
 gem "omniauth-rails_csrf_protection"
+
+gem "tailwindcss-rails", "~> 2.0"
