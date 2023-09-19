@@ -1,9 +1,13 @@
 <p style="text-align: right;"><%=link_to "Add New Listing", new_host_listing_path%></p>
-<h1>Your Listings</h1>
-<% @listings.each do |l|%>
-    <p>Title: <%= link_to l.title, host_listing_path(l)%><br>
-    About: <%= link_to l.about, host_listing_path(l)%><br>
-    <%= l.status%>
-    <%= button_to "Delete", host_listing_path(l), method: :delete%>
-    </p><hr>
-<% end %>
+    <h1>Your Listings</h1>
+    <div class="container">    
+        
+        <% @listings.each do |l|%>
+            <p>Title: <%= link_to l.title, host_listing_path(l)%><br>
+            About: <%= link_to l.about, host_listing_path(l)%><br>
+            <%= l.status%>
+            <%= button_to "Delete", host_listing_path(l), method: :delete, class: "delete-button"%>
+            </p><hr>
+        <% end %>
+
+    </div>

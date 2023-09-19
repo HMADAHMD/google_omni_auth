@@ -1,42 +1,48 @@
 <h1>List Your Property</h1>
 
-<% if flash[:errors]%>
-    <% flash[:errors].each do |error|%>
-        <%= error%>
-    <% end%>
-<% end%>
-<table>
-  <form action="<%= host_listings_path %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    
-    <tr>
-      <td><label for="title">Title:</label></td>
-      <td><input type="text" name="listing[title]" id="title" value="<%= @listing.title %>"></td>
-    </tr>
-    
-    <tr>
-      <td><label for="about">About:</label></td>
-      <td><textarea name="listing[about]" id="about"><%= @listing.about %></textarea></td>
-    </tr>
-    
-    <tr>
-      <td><label for="address">Address:</label></td>
-      <td>
-        <div data-controller="address">
-          <input type="text" name="listing[address]" id="address" autocomplete="off">
-        </div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td><label for="max_guests">Max Guest:</label></td>
-      <td><input type="number" name="listing[max_guests]" id="max_guests" value="<%= @listing.max_guests %>" min="1" max="100" step="1"></td>
-    </tr>
-    
-    <tr>
-      <td></td>
-      <td><input type="submit" value="Create Listing"></td>
-    </tr>
-  </form>
-</table>
+<div class="container">
+  <div class="row justify-content-center align-items-center">  
+    <div class="col-md-4">
+      <% if flash[:errors]%>
+          <% flash[:errors].each do |error|%>
+              <%= error%>
+          <% end%>
+      <% end%>
+      <table>
+        <form action="<%= host_listings_path %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          
+          <tr>
+            <td><label for="title">Title:</label></td>
+            <td><input type="text" name="listing[title]" id="title" class="myTextField" value="<%= @listing.title %>"></td>
+          </tr>
+          
+          <tr>
+            <td><label for="about">About:</label></td>
+            <td><textarea name="listing[about]" class="myTextField" id="about"><%= @listing.about %></textarea></td>
+          </tr>
+          
+          <tr>
+            <td><label for="address">Address:</label></td>
+            <td>
+              <div data-controller="address">
+                <input type="text" name="listing[address]" class="myTextField" id="address" autocomplete="off">
+              </div>
+            </td>
+          </tr>
+          
+          <tr>
+            <td><label for="max_guests">Max Guest:</label></td>
+            <td><input type="number" name="listing[max_guests]" class="myTextField" id="max_guests" value="<%= @listing.max_guests %>" min="1" max="100" step="1"></td>
+          </tr>
+          
+          <tr>
+            <td></td>
+            <td><input type="submit" value="Create Listing", class="listing-button"></td>
+          </tr>
+        </form>
+      </table>
+    </div>
+  </div>
+</div>
 

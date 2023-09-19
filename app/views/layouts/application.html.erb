@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   <body>
-      <%if user_signed_in? %>
-      <%= button_to "Log out", destroy_user_session_path, method: :delete%>
-      <% end%>
+      <div class="container">
+        <%if user_signed_in? %>
+          <%= button_to "Log out", destroy_user_session_path, method: :delete%>
+        <% else%>
+          <%= button_to "Log in", user_session_path, class: "button-like-link-login",  method: :post%><br>
+          <%= link_to "Sign up", new_user_registration_path, class: "button-like-link"%>
+        <% end%>
+      </div>  
       <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <%= yield %>

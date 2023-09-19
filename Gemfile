@@ -79,4 +79,4 @@ gem 'omniauth-google-oauth2'
 
 gem "omniauth-rails_csrf_protection"
 
-gem "tailwindcss-rails", "~> 2.0"
+gem 'bootstrap', '~> 5.3.1'
