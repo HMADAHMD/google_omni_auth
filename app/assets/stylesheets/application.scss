@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .button-like-link {
+    display: inline-block;
+    padding: 5px 10px; /* Adjust padding as needed */
+    background-color: #b300ff; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 10px; /* Adjust border radius as needed */
+    cursor: pointer;
+  }
+  
+  .button-like-link:hover {
+    background-color: #360561; /* Button background color on hover */
+  }
+  .button-like-link-login {
+    display: inline-block;
+    padding: 5px 10px; /* Adjust padding as needed */
+    background-color: #fb9200; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 10px; /* Adjust border radius as needed */
+    cursor: pointer;
+  }
+  
+  .button-like-link-login:hover {
+    background-color: #5c3602; /* Button background color on hover */
+  }
+
+  .delete-button {
+    display: inline-block;
+    padding: 5px 10px; /* Adjust padding as needed */
+    background-color: #ff3636; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 10px; /* Adjust border radius as needed */
+    cursor: pointer;
+  }
+
+  .listing-button {
+    display: inline-block;
+    padding: 5px 10px; /* Adjust padding as needed */
+    background-color: #17c3f7; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 10px; /* Adjust border radius as needed */
+    cursor: pointer;
+  }
+  .myTextField {
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+
+ @import "bootstrap"
+
+
